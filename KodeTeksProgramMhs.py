@@ -1,3 +1,4 @@
+# Author Kodeteks.com
 from os import system
 d_nama = []
 d_nim = []
@@ -10,6 +11,7 @@ d_uas = []
 d_akhir = []
 
 def judul():
+    print('\033[92m\033[1m\x1B[3mwww.kodeteks.com\x1B[0m')
     print('=====================================')
     print('|    PROGRAM NILAI DATA MAHASISWA   |')
     print('=====================================')
@@ -37,6 +39,7 @@ def menu():
 # dosen
 def dosen():
     system('cls')
+    print('\033[92m\033[1m\x1B[3mwww.kodeteks.com\x1B[0m')
     print('=====================================')
     print('|               Login               |')
     print('=====================================')
@@ -51,6 +54,7 @@ def dosen():
 
 def menu_dosen():
     system('cls')
+    print('\033[92m\033[1m\x1B[3mwww.kodeteks.com\x1B[0m')
     print('=====================================')
     print('Input Data Nilai Mahasiswa'.center(40))
     print('=====================================')
@@ -95,7 +99,7 @@ def tambah():
     d_nama.append(nama)
     nim = input('Nim   : ')
     d_nim.append(nim)
-    kelas = input('Kelas :')
+    kelas = input('Kelas : ')
     d_kelas.append(kelas)
 
     system('cls')
@@ -106,11 +110,11 @@ def tambah():
     j_hadir = ((hadir/16)*20/100)*100
     d_hadir.append(j_hadir)
 
-    tugas = float(input('Nilai Tugas  :'))
+    tugas = float(input('Nilai Tugas  : '))
     j_tugas = tugas*(25/100)
     d_tugas.append(j_tugas)
 
-    uts = float(input('Nilai UTS  :'))
+    uts = float(input('Nilai UTS  : '))
     j_uts = uts*(25/100)
     d_uts.append(j_uts)
 
@@ -144,84 +148,107 @@ def lihat():
     menu_dosen()
 
 def ubah():
+    system('cls')
+    judul()
+    print('Ubah Data'.center(40))
+    print('=====================================')
     rubah = input('Ubah Biodata/Nilai [B/N] : ')
     if rubah == 'B' or rubah == 'b' :
-        i = int (input('Inputkan ID : '))
-        if (i > len(d_nim[i])):
-            print('ID Salah')
-        else:
-            jurusanb = input('Prodi [TI/SI] : ')
-            if jurusanb == 'TI' or jurusanb == 'ti':
-                jbaru = 'Teknik Informatika'
-                d_jurusan[i] = jbaru
-            elif jurusanb == 'SI' or jurusanb == 'si':
-                jbaru = 'Sistem Informasi'
-                d_jurusan[i] = jbaru
-            else :
-                kembali = input('Pilihan tidak ada')
-                ubah()
+        def ubah1():
+            m_nim = input('Masukkan Nim : ')
+            for i in range (len(d_nim)):
+                if m_nim == d_nim[i]:
+                    def ulangubah():
+                        jurusanb = input('Prodi [TI/SI] : ')
+                        if jurusanb == 'TI' or jurusanb == 'ti':
+                            jbaru = 'Teknik Informatika'
+                            d_jurusan[i] = jbaru
+                        elif jurusanb == 'SI' or jurusanb == 'si':
+                            jbaru = 'Sistem Informasi'
+                            d_jurusan[i] = jbaru
+                        else :
+                            kembali = input('Pilihan tidak ada')
+                            ulangubah()
 
-            namabaru = input('Nama : ')
-            d_nama[i] = namabaru
+                        namabaru = input('Nama : ')
+                        d_nama[i] = namabaru
 
-            nimbaru = input('Nim : ')
-            d_nim[i] = nimbaru
+                        nimbaru = input('Nim : ')
+                        d_nim[i] = nimbaru
 
-            kelasbaru = input('Kelas : ')
-            d_kelas[i] = kelasbaru
+                        kelasbaru = input('Kelas : ')
+                        d_kelas[i] = kelasbaru
+                        berhasil = input('Data Berhasil di Ubah [Enter]')
+                        menu_dosen()
+
+                    ulangubah()
+               
+            else:
+                tidak = input('Nim Tidak Ada')
+                ubah1()
+                
+        ubah1()
+            
+    elif rubah == 'N' or rubah == 'n' :
+        def ubah2():
+            m_nim = input('Masukkan Nim : ')
+            for i in range (len(d_nim)):
+                if m_nim == d_nim[i]:
+                        hadirb = float (input('Jumlah Hadir : '))
+                        j_hadirb = ((hadirb/16)*20/100)*100
+                        d_hadir[i] = j_hadirb
+
+                        tugasb = float (input('Nilai Tugas : '))
+                        j_tugasb = tugasb*(25/100)
+                        d_tugas[i] = j_tugasb
+
+                        utsb = float (input('Nilai UTS : '))
+                        j_utsb = utsb*(25/100)
+                        d_uts[i] = j_utsb
+
+                        uasb = float (input ('Nilai UAS : '))
+                        j_uasb = uasb*(30/100)
+                        d_uas[i] = j_uasb
+
+                        totalb = j_hadirb+j_tugasb+j_utsb+j_uasb
+                        d_akhir[i] = totalb
+                        berhasil = input('Data Berhasil di Ubah [Enter]')
+                        menu_dosen()
+            else:
+                tidak = input('Nim Tidak Ada')
+                ubah2()
 
             
-    else:
-        i = int (input('Inputkan ID : '))
-        if (i > len(d_nim[i])):
-            print('ID Salah')
-        else:
-            hadirb = float (input('Jumlah Hadir : '))
-            j_hadirb = ((hadirb/16)*20/100)*100
-            d_hadir[i] = j_hadirb
+        ubah2()   
 
-            tugasb = float (input('Nilai Tugas : '))
-            j_tugasb = tugasb*(25/100)
-            d_tugas[i] = j_tugasb
-
-            utsb = float (input('Nilai UTS : '))
-            j_utsb = utsb*(25/100)
-            d_uts[i] = j_utsb
-
-            uasb = float (input ('Nilai UAS : '))
-            j_uasb = uasb*(30/100)
-            d_uas[i] = j_uasb
-
-            totalb = j_hadirb+j_tugasb+j_utsb+j_uasb
-            d_akhir[i] = totalb
-    kembali = input ('Kembali Tekan [enter]')
-    menu_dosen()  
+    else :
+        tidak = input('Pilih Ubah')
+        ubah()
 
 def hapus():
     system('cls')
     judul()
     print('Hapus Data'.center(40))
     print('=====================================')
-    i = int(input('Masukkan ID : '))
-    
-    if (i > len(d_nim[i])):
+    m_nim = input('Masukkan Nim : ')
+    for i in range (len(d_nim)):
+        if m_nim == d_nim[i]:
+            d_nim.remove(d_nim[i])
+            d_nama.remove(d_nama[i])
+            d_kelas.remove(d_kelas[i])
+            d_jurusan.remove(d_jurusan[i])
+            d_hadir.remove(d_hadir[i])
+            d_tugas.remove(d_tugas[i])
+            d_uts.remove(d_uts[i])
+            d_uas.remove(d_uas[i])
+            d_akhir.remove(d_akhir[i])
+            berhasil = input('Data Berhasil di hapus [Enter]')
+            menu_dosen()
+        
+    else:
         tidak = input('Nim Tidak Ada')
         hapus()
-    
-    else:
-        d_nim.remove(d_nim[i])
-        d_nama.remove(d_nama[i])
-        d_kelas.remove(d_kelas[i])
-        d_jurusan.remove(d_jurusan[i])
-        d_hadir.remove(d_hadir[i])
-        d_tugas.remove(d_tugas[i])
-        d_uts.remove(d_uts[i])
-        d_uas.remove(d_uas[i])
-        d_akhir.remove(d_akhir[i])
-       
-    print('Data Berhasil Dihapus')
-    kembali = input ('Kembali Tekan [enter]')
-    menu_dosen()
+        
 
 def selesai():
     system('cls')
@@ -237,8 +264,8 @@ def mahasiswa():
             print('--------------------------')
             print('Nama        : ',d_nama[i])
             print('Nim         : ',d_nim[i])
-            print('Kelas       :',d_kelas[i])
-            print('Prodi       :',d_jurusan[i])
+            print('Kelas       : ',d_kelas[i])
+            print('Prodi       : ',d_jurusan[i])
             print('Kehadiran   : ',d_hadir[i])
             print('Tugas       : ',d_tugas[i])
             print('UTS         : ',d_uts[i])
