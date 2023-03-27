@@ -1,3 +1,8 @@
+## Update Release
+* v1.0
+* v1.1
+* all update [release](https://github.com/teranixbq/program-nilai-data-mahasiswa/releases)
+----
 # Program Nilai Data Mahasiswa
 
 Program Python Nilai Data Mahasiswa untuk mencari prediksi nilai Kehadiran, UTS, UAS, Tugas dan nilai akhir. Hasil nilai berdasarkan pembagian presentase di lembaga pendiikan kalian
