@@ -29,4 +29,3 @@ Perlu memasukkan password dosen, default password pada program ini adalah `admin
 ![login dosen](https://blogger.googleusercontent.com/img/a/AVvXsEhMOlp5m_ShfnlYDgGkHZCkUzfzOZbq_eAmS7hfhpysO8JaSTZnO-bxatZkGCut0FRS7iAiwrMRazwmmyJZNYgcpb6Nt2INy1jD81ZTotAaSfJH_S6UD1g_40Ra0YP754swb0oIftJeFRqgH5a7snEFrzyVLxwKDtgGv_oM8Oxw6OJNc71uiD6OgCIsKw)
 
 ##
-Teranix |[KodeTeks](https://www.kodeteks.com/2021/05/program-python-nilai-data-mahasiswa.html)
